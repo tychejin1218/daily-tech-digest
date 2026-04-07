@@ -42,8 +42,8 @@ crontab -e
 ```
 
 ```cron
-# 매일 오전 8시에 실행
-0 8 * * * /Users/daekyo/personal/daily-tech-digest/generate.sh >> /tmp/daily-digest.log 2>&1
+# 매일 오전 8시 40분에 실행
+40 8 * * * /Users/daekyo/personal/daily-tech-digest/generate.sh >> /tmp/daily-digest.log 2>&1
 ```
 
 ## 의존성

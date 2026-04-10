@@ -7,7 +7,11 @@ mkdir -p "$BASE_DIR/news" "$BASE_DIR/java" "$BASE_DIR/springboot" "$BASE_DIR/dat
 # 오늘 날짜 파일이 몇 번째인지 계산
 get_filename() {
   local dir="$1"
-  local num=1
+  if [ ! -f "$dir/${DATE}.md" ]; then
+    echo "${DATE}.md"
+    return
+  fi
+  local num=2
   while [ -f "$dir/${DATE}($num).md" ]; do
     num=$((num + 1))
   done

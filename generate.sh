@@ -37,7 +37,7 @@ RECENT_DB=$(get_recent_topics "$BASE_DIR/database")
 echo "[$DATE] 다이제스트 생성 시작... ($NEWS_FILE)"
 
 # IT 뉴스
-claude -p "오늘($DATE) 백엔드/서버/클라우드/AI 관련 최신 IT 뉴스 3개를 한국어 마크다운으로 작성해주세요. AI 개발 도구, LLM API 활용, AI를 활용한 개발 트렌드 포함.
+claude -p --allowedTools "WebSearch" "오늘($DATE) 백엔드/서버/클라우드/AI 관련 최신 IT 뉴스 3개를 웹 검색으로 찾아서 한국어 마크다운으로 작성해주세요. AI 개발 도구, LLM API 활용, AI를 활용한 개발 트렌드 포함.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
 ${RECENT_NEWS:-없음}

@@ -110,3 +110,24 @@ To github.com:tychejin1218/daily-tech-digest.git
 ✓ Spring Boot 완료 → 2026-04-16.md
 ✓ Database 완료 → 2026-04-16.md
 [2026-04-16] 다이제스트 생성 완료!
+[main 5aedd45] Daily tech digest - 2026-04-16 (2026-04-16.md)
+ 5 files changed, 154 insertions(+)
+ create mode 100644 database/2026-04-16.md
+ create mode 100644 java/2026-04-16.md
+ create mode 100644 news/2026-04-16.md
+ create mode 100644 springboot/2026-04-16.md
+To github.com:tychejin1218/daily-tech-digest.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'github.com:tychejin1218/daily-tech-digest.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-04-16] GitHub push 완료!
+[2026-04-17] 다이제스트 생성 시작... (2026-04-17.md)
+Error: Input must be provided either through stdin or as a prompt argument when using --print
+✓ IT 뉴스 완료 → 2026-04-17.md
+✓ Java 완료 → 2026-04-17.md
+✓ Spring Boot 완료 → 2026-04-17.md
+✓ Database 완료 → 2026-04-17.md
+[2026-04-17] 다이제스트 생성 완료!

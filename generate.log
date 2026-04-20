@@ -131,3 +131,19 @@ Error: Input must be provided either through stdin or as a prompt argument when 
 ✓ Spring Boot 완료 → 2026-04-17.md
 ✓ Database 완료 → 2026-04-17.md
 [2026-04-17] 다이제스트 생성 완료!
+[main ea6db3c] Daily tech digest - 2026-04-17 (2026-04-17.md)
+ 6 files changed, 83 insertions(+), 1 deletion(-)
+ create mode 100644 database/2026-04-17.md
+ create mode 100644 java/2026-04-17.md
+ create mode 100644 news/2026-04-17.md
+ create mode 100644 springboot/2026-04-17.md
+To github.com:tychejin1218/daily-tech-digest.git
+   ebf4ed3..ea6db3c  main -> main
+[2026-04-17] GitHub push 완료!
+[2026-04-18] 다이제스트 생성 시작... (2026-04-18.md)
+[2026-04-21] 다이제스트 생성 시작... (2026-04-21.md)
+✓ IT 뉴스 완료 → 2026-04-21.md
+✓ Java 완료 → 2026-04-21.md
+✓ Spring Boot 완료 → 2026-04-21.md
+✓ Database 완료 → 2026-04-21.md
+[2026-04-21] 다이제스트 생성 완료!

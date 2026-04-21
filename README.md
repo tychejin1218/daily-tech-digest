@@ -1,9 +1,9 @@
 # Daily Tech Digest
 
-백엔드 개발자를 위한 일일 기술 다이제스트.
+백엔드 개발자를 위한 일일 학습 노트.
 매일 08:40에 Claude CLI가 자동으로 IT 뉴스, Java, Spring Boot, Database 관련 지식을 정리하고 GitHub에 푸시합니다.
 
-## 다이제스트
+## 학습 노트
 
 매일 자동 생성되는 기술 콘텐츠입니다. 파일명은 `YYYY-MM-DD.md` 형식입니다.
 
@@ -59,5 +59,5 @@ daily-tech-digest/
 │   └── jpa/        # JPA 핵심 개념 가이드 (14개)
 ├── springboot/     # Spring Boot 팁 (2개/일)
 ├── database/       # Database 팁 (2개/일)
-└── generate.sh     # 다이제스트 자동 생성 스크립트
+└── generate.sh     # 학습 노트 자동 생성 스크립트
 ```

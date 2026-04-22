@@ -4,10 +4,19 @@ BASE_DIR="/Users/daekyo/personal/daily-tech-digest"
 
 mkdir -p "$BASE_DIR/news" "$BASE_DIR/java" "$BASE_DIR/springboot" "$BASE_DIR/database"
 
-# 오늘 날짜 파일이 몇 번째인지 계산
+# Catch-up 가드: 오늘 4개 카테고리 파일이 모두 존재하고 비어있지 않으면 종료 (launchd RunAtLoad 중복 실행 방지)
+if [ -s "$BASE_DIR/news/${DATE}.md" ] && \
+   [ -s "$BASE_DIR/java/${DATE}.md" ] && \
+   [ -s "$BASE_DIR/springboot/${DATE}.md" ] && \
+   [ -s "$BASE_DIR/database/${DATE}.md" ]; then
+  echo "[$DATE] 이미 생성 완료 — 건너뜀"
+  exit 0
+fi
+
+# 오늘 날짜 파일이 몇 번째인지 계산 (빈 파일은 이전 실행 실패로 간주하여 덮어쓰기)
 get_filename() {
   local dir="$1"
-  if [ ! -f "$dir/${DATE}.md" ]; then
+  if [ ! -f "$dir/${DATE}.md" ] || [ ! -s "$dir/${DATE}.md" ]; then
     echo "${DATE}.md"
     return
   fi

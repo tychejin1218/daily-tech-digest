@@ -408,3 +408,58 @@ and the repository exists.
 ✓ Spring Boot 완료 → 2026-05-08.md
 ✓ Database 완료 → 2026-05-08.md
 [2026-05-08] 다이제스트 생성 완료!
+[main dd96943] Daily tech digest - 2026-05-08 (2026-05-08.md)
+ 5 files changed, 138 insertions(+)
+ create mode 100644 database/2026-05-08.md
+ create mode 100644 java/2026-05-08.md
+ create mode 100644 news/2026-05-08.md
+ create mode 100644 springboot/2026-05-08.md
+To github.com:tychejin1218/daily-tech-digest.git
+   ff350b2..dd96943  main -> main
+[2026-05-08] GitHub push 완료!
+[2026-05-09] 다이제스트 생성 시작... (2026-05-09.md)
+Error: claude native binary not installed.
+
+Either postinstall did not run (--ignore-scripts, some pnpm configs)
+or the platform-native optional dependency was not downloaded
+(--omit=optional).
+
+Run the postinstall manually (adjust path for local vs global install):
+  node node_modules/@anthropic-ai/claude-code/install.cjs
+
+Or reinstall without --ignore-scripts / --omit=optional.
+✓ IT 뉴스 완료 → 2026-05-09.md
+Error: claude native binary not installed.
+
+Either postinstall did not run (--ignore-scripts, some pnpm configs)
+or the platform-native optional dependency was not downloaded
+(--omit=optional).
+
+Run the postinstall manually (adjust path for local vs global install):
+  node node_modules/@anthropic-ai/claude-code/install.cjs
+
+Or reinstall without --ignore-scripts / --omit=optional.
+✓ Java 완료 → 2026-05-09.md
+Error: claude native binary not installed.
+
+Either postinstall did not run (--ignore-scripts, some pnpm configs)
+or the platform-native optional dependency was not downloaded
+(--omit=optional).
+
+Run the postinstall manually (adjust path for local vs global install):
+  node node_modules/@anthropic-ai/claude-code/install.cjs
+
+Or reinstall without --ignore-scripts / --omit=optional.
+✓ Spring Boot 완료 → 2026-05-09.md
+Error: claude native binary not installed.
+
+Either postinstall did not run (--ignore-scripts, some pnpm configs)
+or the platform-native optional dependency was not downloaded
+(--omit=optional).
+
+Run the postinstall manually (adjust path for local vs global install):
+  node node_modules/@anthropic-ai/claude-code/install.cjs
+
+Or reinstall without --ignore-scripts / --omit=optional.
+✓ Database 완료 → 2026-05-09.md
+[2026-05-09] 다이제스트 생성 완료!

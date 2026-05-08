@@ -390,3 +390,21 @@ SessionEnd hook [node "${CLAUDE_PLUGIN_ROOT}/scripts/session-lifecycle-hook.mjs"
 ✓ Spring Boot 완료 → 2026-05-07.md
 ✓ Database 완료 → 2026-05-07.md
 [2026-05-07] 다이제스트 생성 완료!
+[main 2a7c73d] Daily tech digest - 2026-05-07 (2026-05-07.md)
+ 5 files changed, 20 insertions(+)
+ create mode 100644 database/2026-05-07.md
+ create mode 100644 java/2026-05-07.md
+ create mode 100644 news/2026-05-07.md
+ create mode 100644 springboot/2026-05-07.md
+ssh: connect to host github.com port 22: Undefined error: 0
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[2026-05-07] GitHub push 완료!
+[2026-05-08] 다이제스트 생성 시작... (2026-05-08.md)
+✓ IT 뉴스 완료 → 2026-05-08.md
+✓ Java 완료 → 2026-05-08.md
+✓ Spring Boot 완료 → 2026-05-08.md
+✓ Database 완료 → 2026-05-08.md
+[2026-05-08] 다이제스트 생성 완료!

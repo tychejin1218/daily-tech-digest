@@ -523,3 +523,22 @@ To github.com:tychejin1218/daily-tech-digest.git
 ✓ Spring Boot 완료 → 2026-05-13.md
 ✓ Database 완료 → 2026-05-13.md
 [2026-05-13] 다이제스트 생성 완료!
+[main 702a0eb] Daily tech digest - 2026-05-13 (2026-05-13.md)
+ 5 files changed, 94 insertions(+)
+ create mode 100644 database/2026-05-13.md
+ create mode 100644 java/2026-05-13.md
+ create mode 100644 news/2026-05-13.md
+ create mode 100644 springboot/2026-05-13.md
+To github.com:tychejin1218/daily-tech-digest.git
+   3639683..702a0eb  main -> main
+[2026-05-13] GitHub push 완료!
+[2026-05-14] 다이제스트 생성 시작... (2026-05-14.md)
+/Users/daekyo/personal/daily-tech-digest/generate.sh: line 49: /Users/daekyo/.nvm/versions/node/v20.20.0/bin/claude: Permission denied
+✓ IT 뉴스 완료 → 2026-05-14.md
+/Users/daekyo/personal/daily-tech-digest/generate.sh: line 64: /Users/daekyo/.nvm/versions/node/v20.20.0/bin/claude: Permission denied
+✓ Java 완료 → 2026-05-14.md
+/Users/daekyo/personal/daily-tech-digest/generate.sh: line 77: /Users/daekyo/.nvm/versions/node/v20.20.0/bin/claude: Permission denied
+✓ Spring Boot 완료 → 2026-05-14.md
+/Users/daekyo/personal/daily-tech-digest/generate.sh: line 90: /Users/daekyo/.nvm/versions/node/v20.20.0/bin/claude: Permission denied
+✓ Database 완료 → 2026-05-14.md
+[2026-05-14] 다이제스트 생성 완료!

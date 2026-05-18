@@ -61,7 +61,8 @@ EOF
 echo "✓ IT 뉴스 완료 → $NEWS_FILE"
 
 # Java
-claude -p "오늘($DATE) Java 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. Java 문법, JVM, 멀티스레딩, 람다/스트림, 최신 Java 버전 기능 등.
+claude -p <<EOF > "$BASE_DIR/java/$JAVA_FILE"
+오늘($DATE) Java 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. Java 문법, JVM, 멀티스레딩, 람다/스트림, 최신 Java 버전 기능 등.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
 ${RECENT_JAVA:-없음}
@@ -70,11 +71,13 @@ ${RECENT_JAVA:-없음}
 ### 제목
 설명 (2-3문장)
 
-> 💡 **왜 중요한가**: 한 문장" > "$BASE_DIR/java/$JAVA_FILE"
+> 💡 **왜 중요한가**: 한 문장
+EOF
 echo "✓ Java 완료 → $JAVA_FILE"
 
 # Spring Boot
-claude -p "오늘($DATE) Spring Boot 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. 의존성 주입(DI), AOP, REST API, 시큐리티, 테스트, 성능 최적화 등.
+claude -p <<EOF > "$BASE_DIR/springboot/$SPRING_FILE"
+오늘($DATE) Spring Boot 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. 의존성 주입(DI), AOP, REST API, 시큐리티, 테스트, 성능 최적화 등.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
 ${RECENT_SPRING:-없음}
@@ -83,11 +86,13 @@ ${RECENT_SPRING:-없음}
 ### 제목
 설명 (2-3문장)
 
-> 💡 **왜 중요한가**: 한 문장" > "$BASE_DIR/springboot/$SPRING_FILE"
+> 💡 **왜 중요한가**: 한 문장
+EOF
 echo "✓ Spring Boot 완료 → $SPRING_FILE"
 
 # Database
-claude -p "오늘($DATE) Database 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. SQL, 인덱스, 트랜잭션, 쿼리 최적화, NoSQL, JPA/Hibernate 등.
+claude -p <<EOF > "$BASE_DIR/database/$DB_FILE"
+오늘($DATE) Database 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. SQL, 인덱스, 트랜잭션, 쿼리 최적화, NoSQL, JPA/Hibernate 등.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
 ${RECENT_DB:-없음}
@@ -96,7 +101,8 @@ ${RECENT_DB:-없음}
 ### 제목
 설명 (2-3문장)
 
-> 💡 **왜 중요한가**: 한 문장" > "$BASE_DIR/database/$DB_FILE"
+> 💡 **왜 중요한가**: 한 문장
+EOF
 echo "✓ Database 완료 → $DB_FILE"
 
 echo "[$DATE] 다이제스트 생성 완료!"

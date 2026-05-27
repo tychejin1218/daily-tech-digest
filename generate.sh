@@ -1,14 +1,20 @@
 #!/bin/bash
 DATE=$(date +%Y-%m-%d)
+MONTH=$(date +%Y-%m)
 BASE_DIR="/Users/daekyo/personal/daily-tech-digest"
 
-mkdir -p "$BASE_DIR/news" "$BASE_DIR/java" "$BASE_DIR/springboot" "$BASE_DIR/database"
+# 월별 폴더 (카테고리/YYYY-MM/)
+NEWS_DIR="$BASE_DIR/news/$MONTH"
+JAVA_DIR="$BASE_DIR/java/$MONTH"
+SPRING_DIR="$BASE_DIR/springboot/$MONTH"
+DB_DIR="$BASE_DIR/database/$MONTH"
+mkdir -p "$NEWS_DIR" "$JAVA_DIR" "$SPRING_DIR" "$DB_DIR"
 
 # Catch-up 가드: 오늘 4개 카테고리 파일이 모두 존재하고 비어있지 않으면 종료 (launchd RunAtLoad 중복 실행 방지)
-if [ -s "$BASE_DIR/news/${DATE}.md" ] && \
-   [ -s "$BASE_DIR/java/${DATE}.md" ] && \
-   [ -s "$BASE_DIR/springboot/${DATE}.md" ] && \
-   [ -s "$BASE_DIR/database/${DATE}.md" ]; then
+if [ -s "$NEWS_DIR/${DATE}.md" ] && \
+   [ -s "$JAVA_DIR/${DATE}.md" ] && \
+   [ -s "$SPRING_DIR/${DATE}.md" ] && \
+   [ -s "$DB_DIR/${DATE}.md" ]; then
   echo "[$DATE] 이미 생성 완료 — 건너뜀"
   exit 0
 fi
@@ -28,15 +34,16 @@ get_filename() {
 }
 
 # 최근 파일들에서 다룬 주제 제목 추출 (중복 방지용)
+# 월 폴더(YYYY-MM)만 대상으로 하여 java/jpa 같은 비날짜 폴더는 자동 제외, 월 경계에서도 직전 달 주제까지 참조
 get_recent_topics() {
-  local dir="$1"
-  ls -t "$dir"/*.md 2>/dev/null | head -10 | xargs grep "^### " 2>/dev/null | sed 's/.*### /- /' | sort -u
+  local cat_dir="$1"   # 카테고리 루트 (예: $BASE_DIR/java)
+  ls -t "$cat_dir"/[0-9][0-9][0-9][0-9]-[0-9][0-9]/*.md 2>/dev/null | head -10 | xargs grep "^### " 2>/dev/null | sed 's/.*### /- /' | sort -u
 }
 
-NEWS_FILE=$(get_filename "$BASE_DIR/news")
-JAVA_FILE=$(get_filename "$BASE_DIR/java")
-SPRING_FILE=$(get_filename "$BASE_DIR/springboot")
-DB_FILE=$(get_filename "$BASE_DIR/database")
+NEWS_FILE=$(get_filename "$NEWS_DIR")
+JAVA_FILE=$(get_filename "$JAVA_DIR")
+SPRING_FILE=$(get_filename "$SPRING_DIR")
+DB_FILE=$(get_filename "$DB_DIR")
 
 RECENT_NEWS=$(get_recent_topics "$BASE_DIR/news")
 RECENT_JAVA=$(get_recent_topics "$BASE_DIR/java")
@@ -46,7 +53,7 @@ RECENT_DB=$(get_recent_topics "$BASE_DIR/database")
 echo "[$DATE] 다이제스트 생성 시작... ($NEWS_FILE)"
 
 # IT 뉴스
-claude -p --allowedTools WebSearch <<EOF > "$BASE_DIR/news/$NEWS_FILE"
+claude -p --allowedTools WebSearch <<EOF > "$NEWS_DIR/$NEWS_FILE"
 오늘($DATE) 백엔드/서버/클라우드/AI 관련 최신 IT 뉴스 3개를 웹 검색으로 찾아서 한국어 마크다운으로 작성해주세요. AI 개발 도구, LLM API 활용, AI를 활용한 개발 트렌드 포함.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
@@ -61,7 +68,7 @@ EOF
 echo "✓ IT 뉴스 완료 → $NEWS_FILE"
 
 # Java
-claude -p <<EOF > "$BASE_DIR/java/$JAVA_FILE"
+claude -p <<EOF > "$JAVA_DIR/$JAVA_FILE"
 오늘($DATE) Java 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. Java 문법, JVM, 멀티스레딩, 람다/스트림, 최신 Java 버전 기능 등.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
@@ -76,7 +83,7 @@ EOF
 echo "✓ Java 완료 → $JAVA_FILE"
 
 # Spring Boot
-claude -p <<EOF > "$BASE_DIR/springboot/$SPRING_FILE"
+claude -p <<EOF > "$SPRING_DIR/$SPRING_FILE"
 오늘($DATE) Spring Boot 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. 의존성 주입(DI), AOP, REST API, 시큐리티, 테스트, 성능 최적화 등.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
@@ -91,7 +98,7 @@ EOF
 echo "✓ Spring Boot 완료 → $SPRING_FILE"
 
 # Database
-claude -p <<EOF > "$BASE_DIR/database/$DB_FILE"
+claude -p <<EOF > "$DB_DIR/$DB_FILE"
 오늘($DATE) Database 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. SQL, 인덱스, 트랜잭션, 쿼리 최적화, NoSQL, JPA/Hibernate 등.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:

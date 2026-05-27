@@ -20,14 +20,15 @@ cat generate.log          # 실행 로그 확인
 
 ```
 daily-tech-digest/
-├── news/        # IT 뉴스 (3개 항목)
-├── java/        # Java 팁 (2개 항목)
-├── springboot/  # Spring Boot 팁 (2개 항목)
-├── database/    # Database 팁 (2개 항목)
-└── generate.sh  # 생성 스크립트
+├── news/YYYY-MM/        # IT 뉴스 (3개 항목) — 월별 폴더
+├── java/YYYY-MM/        # Java 팁 (2개 항목) — 월별 폴더
+│   └── jpa/             # JPA 큐레이션 가이드(번호 파일) — 일일분 아님, 중복 방지 대상 제외
+├── springboot/YYYY-MM/  # Spring Boot 팁 (2개 항목) — 월별 폴더
+├── database/YYYY-MM/    # Database 팁 (2개 항목) — 월별 폴더
+└── generate.sh          # 생성 스크립트
 ```
 
-파일명: `YYYY-MM-DD.md` (같은 날 재실행 시 `YYYY-MM-DD(2).md`, `(3).md` ...)
+파일 경로: `카테고리/YYYY-MM/YYYY-MM-DD.md` (일일분은 월 단위 폴더로 관리). 같은 날 재실행 시 `YYYY-MM-DD(2).md`, `(3).md` ...
 
 ## MD 파일 양식
 
@@ -47,7 +48,7 @@ daily-tech-digest/
 
 ## 중복 방지
 
-새 파일 작성 시 해당 카테고리 디렉토리의 최근 파일을 읽고 `### 제목` 목록을 확인한 뒤 겹치는 주제를 피할 것. `generate.sh`는 이를 자동으로 처리하지만 수동 작성 시에도 동일하게 적용.
+새 파일 작성 시 해당 카테고리의 월 폴더(`YYYY-MM`) 최근 파일을 읽고 `### 제목` 목록을 확인한 뒤 겹치는 주제를 피할 것. `generate.sh`는 월 폴더를 가로질러 최신 10개를 자동 확인하며(`java/jpa/` 같은 비날짜 폴더는 제외), 월이 바뀌어도 직전 달 주제까지 참조한다. 수동 작성 시에도 동일하게 적용.
 
 ## 자동화
 

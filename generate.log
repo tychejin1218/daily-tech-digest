@@ -737,3 +737,25 @@ To github.com:tychejin1218/daily-tech-digest.git
 ✓ Spring Boot 완료 → 2026-05-27.md
 ✓ Database 완료 → 2026-05-27.md
 [2026-05-27] 다이제스트 생성 완료!
+[main 214fafb] Daily tech digest - 2026-05-27 (2026-05-27.md)
+ 5 files changed, 144 insertions(+)
+ create mode 100644 database/2026-05-27.md
+ create mode 100644 java/2026-05-27.md
+ create mode 100644 news/2026-05-27.md
+ create mode 100644 springboot/2026-05-27.md
+To github.com:tychejin1218/daily-tech-digest.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'github.com:tychejin1218/daily-tech-digest.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-05-27] GitHub push 완료!
+[2026-05-27] 이미 생성 완료 — 건너뜀
+[2026-05-28] 다이제스트 생성 시작... (2026-05-28.md)
+✓ IT 뉴스 완료 → 2026-05-28.md
+✓ Java 완료 → 2026-05-28.md
+✓ Spring Boot 완료 → 2026-05-28.md
+✓ Database 완료 → 2026-05-28.md
+[2026-05-28] 다이제스트 생성 완료!

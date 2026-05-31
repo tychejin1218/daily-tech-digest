@@ -775,3 +775,18 @@ To github.com:tychejin1218/daily-tech-digest.git
 /Users/daekyo/personal/daily-tech-digest/generate.sh: line 101: /Users/daekyo/.nvm/versions/node/v20.20.0/bin/claude: No such file or directory
 ✓ Database 완료 → 2026-05-29.md
 [2026-05-29] 다이제스트 생성 완료!
+[main 54d4206] Daily tech digest - 2026-05-29 (2026-05-29.md)
+ 5 files changed, 19 insertions(+)
+ create mode 100644 database/2026-05/2026-05-29.md
+ create mode 100644 java/2026-05/2026-05-29.md
+ create mode 100644 news/2026-05/2026-05-29.md
+ create mode 100644 springboot/2026-05/2026-05-29.md
+To github.com:tychejin1218/daily-tech-digest.git
+   42f1c81..54d4206  main -> main
+[2026-05-29] GitHub push 완료!
+[2026-05-31] 다이제스트 생성 시작... (2026-05-31.md)
+✓ IT 뉴스 완료 → 2026-05-31.md
+✓ Java 완료 → 2026-05-31.md
+✓ Spring Boot 완료 → 2026-05-31.md
+✓ Database 완료 → 2026-05-31.md
+[2026-05-31] 다이제스트 생성 완료!

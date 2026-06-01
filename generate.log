@@ -805,3 +805,18 @@ To github.com:tychejin1218/daily-tech-digest.git
 ✓ Spring Boot 완료 → 2026-06-01.md
 ✓ Database 완료 → 2026-06-01.md
 [2026-06-01] 다이제스트 생성 완료!
+[main d6ee9f1] Daily tech digest - 2026-06-01 (2026-06-01.md)
+ 5 files changed, 77 insertions(+)
+ create mode 100644 database/2026-06/2026-06-01.md
+ create mode 100644 java/2026-06/2026-06-01.md
+ create mode 100644 news/2026-06/2026-06-01.md
+ create mode 100644 springboot/2026-06/2026-06-01.md
+To github.com:tychejin1218/daily-tech-digest.git
+   327ea91..d6ee9f1  main -> main
+[2026-06-01] GitHub push 완료!
+[2026-06-02] 다이제스트 생성 시작... (2026-06-02.md)
+✓ IT 뉴스 완료 → 2026-06-02.md
+✓ Java 완료 → 2026-06-02.md
+✓ Spring Boot 완료 → 2026-06-02.md
+✓ Database 완료 → 2026-06-02.md
+[2026-06-02] 다이제스트 생성 완료!

@@ -54,7 +54,33 @@ RECENT_SPRING=$(get_recent_topics "$BASE_DIR/springboot")
 RECENT_DB=$(get_recent_topics "$BASE_DIR/database")
 RECENT_ARCH=$(get_recent_topics "$BASE_DIR/architecture")
 
-echo "[$DATE] 다이제스트 생성 시작... ($NEWS_FILE)"
+# 아키텍처 커리큘럼 단계 자동 결정 — 메인 일일 파일(YYYY-MM-DD.md)만 카운트하여 오늘이 몇 일차인지 계산
+ARCH_COUNT=$(ls "$BASE_DIR/architecture"/[0-9][0-9][0-9][0-9]-[0-9][0-9]/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md 2>/dev/null | wc -l | tr -d ' ')
+# 오늘 파일이 이미 있으면 그 번째 그대로, 없으면 오늘이 새로 추가될 번째
+if [ -s "$ARCH_DIR/${DATE}.md" ]; then
+  ARCH_DAY=$ARCH_COUNT
+else
+  ARCH_DAY=$((ARCH_COUNT + 1))
+fi
+
+if [ "$ARCH_DAY" -le 10 ]; then
+  ARCH_LEVEL="Lv1 기초 (Day $ARCH_DAY/10)"
+  ARCH_SCOPE="단일 서버·모놀리스 기본 패턴 — 레이어드 아키텍처(Controller-Service-Repository), 3-tier, REST API 설계 원칙, DTO/Entity/VO 분리, DI/IoC, 의존성 역전(DIP), 트랜잭션 경계 설계, 세션 vs JWT 인증 구조, 로깅·모니터링 기초, 단일 DB 구조의 장단점"
+elif [ "$ARCH_DAY" -le 20 ]; then
+  ARCH_LEVEL="Lv2 도메인·계층 설계 (Day $ARCH_DAY)"
+  ARCH_SCOPE="DDD(Bounded Context, Aggregate, Entity/VO), Clean Architecture 4계층, Hexagonal/Ports & Adapters, Onion, 도메인 이벤트, CQRS 기본(R/W 분리), 캐싱 전략(Cache-Aside, Write-Through, Write-Behind), API Gateway, BFF(Backend for Frontend), 모듈러 모놀리스"
+elif [ "$ARCH_DAY" -le 30 ]; then
+  ARCH_LEVEL="Lv3 분산 시스템 (Day $ARCH_DAY)"
+  ARCH_SCOPE="모놀리스→MSA 전환(Strangler Fig), 동기 통신(REST/gRPC) vs 비동기(Kafka/RabbitMQ), 이벤트 드리븐 아키텍처, Saga(Choreography vs Orchestration), Event Sourcing, CQRS+ES 조합, Outbox 패턴, 분산 트랜잭션 한계(2PC), API Composition, Idempotency 설계"
+elif [ "$ARCH_DAY" -le 40 ]; then
+  ARCH_LEVEL="Lv4 클라우드 네이티브·가용성 (Day $ARCH_DAY)"
+  ARCH_SCOPE="12-factor app, Kubernetes 기반 배포 패턴, Service Mesh(Istio/Linkerd), Circuit Breaker(Resilience4j), Rate Limiting, Bulkhead, Service Discovery, Load Balancing 전략, Auto Scaling, Multi-region/Active-Active, Observability(Tracing/Metrics/Logging)"
+else
+  ARCH_LEVEL="Lv5 AI 시대 아키텍처 (Day $ARCH_DAY)"
+  ARCH_SCOPE="RAG 아키텍처, Vector DB 통합(Pinecone/Weaviate/pgvector), LLM Gateway 패턴, Agent 시스템(Tool Use/ReAct/Planning), Semantic Cache, Hybrid Search(Vector+Keyword), LLM Routing/Fallback, Multi-Agent Orchestration, MLOps for LLM(Eval/Versioning), AI Observability(LangSmith/LangFuse)"
+fi
+
+echo "[$DATE] 다이제스트 생성 시작... ($NEWS_FILE) [아키텍처: $ARCH_LEVEL]"
 
 # IT 뉴스
 if [ ! -s "$NEWS_DIR/${DATE}.md" ]; then
@@ -132,21 +158,31 @@ else
 echo "⊙ Database 이미 존재 — 건너뜀"
 fi
 
-# 아키텍처
+# 아키텍처 — 커리큘럼 단계에 따라 난이도를 점진적으로 올림
 if [ ! -s "$ARCH_DIR/${DATE}.md" ]; then
 claude -p <<EOF > "$ARCH_DIR/$ARCH_FILE"
-오늘($DATE) 백엔드 시니어 개발자를 위한 아키텍처 주제 1개를 한국어 마크다운으로 작성해주세요. AI 시대 시스템 설계(RAG/Agent/Vector DB 활용 아키텍처), 분산 시스템(MSA, 이벤트 드리븐, Saga), 클라우드 네이티브, DDD/Clean/Hexagonal, 확장성·가용성 패턴(CQRS, Event Sourcing, Circuit Breaker 등) 중에서 선택. 다이어그램(ASCII/Mermaid), 트레이드오프, 실제 사례를 포함하여 깊이 있게 작성.
+오늘($DATE)은 백엔드 시니어 개발자 아키텍처 학습의 **$ARCH_LEVEL** 단계입니다. 아래 범위 내에서 아직 다루지 않은 주제 1개를 골라 한국어 마크다운으로 깊이 있게 작성해주세요.
 
-최근에 이미 다룬 주제이므로 반드시 제외해주세요:
+이번 단계 학습 범위:
+$ARCH_SCOPE
+
+지금까지 누적으로 이미 다룬 주제이므로 반드시 제외해주세요(중복 금지):
 ${RECENT_ARCH:-없음}
+
+작성 가이드:
+- 현재 단계 난이도에 맞춰 설명. 이전 단계(Lv1→Lv2→…) 개념은 독자가 이미 안다고 가정하고 진행. 다음 단계 개념은 아직 다루지 않은 상태로 간주.
+- 다이어그램(ASCII 또는 Mermaid) 1개 이상 포함
+- 트레이드오프와 실제 사례(어떤 회사/시스템이 왜 이 패턴을 택했는지) 포함
+- 시니어 백엔드 관점에서 "언제 쓰고 언제 쓰면 안 되는지" 명확히
 
 형식:
 ### 제목
-설명 (다이어그램·트레이드오프·실제 사례 포함)
+
+본문 (다이어그램·트레이드오프·실제 사례 포함)
 
 > 💡 **왜 중요한가**: 한 문장
 EOF
-echo "✓ 아키텍처 완료 → $ARCH_FILE"
+echo "✓ 아키텍처 완료 → $ARCH_FILE ($ARCH_LEVEL)"
 else
 echo "⊙ 아키텍처 이미 존재 — 건너뜀"
 fi

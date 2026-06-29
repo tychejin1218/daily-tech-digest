@@ -8,13 +8,15 @@ NEWS_DIR="$BASE_DIR/news/$MONTH"
 JAVA_DIR="$BASE_DIR/java/$MONTH"
 SPRING_DIR="$BASE_DIR/springboot/$MONTH"
 DB_DIR="$BASE_DIR/database/$MONTH"
-mkdir -p "$NEWS_DIR" "$JAVA_DIR" "$SPRING_DIR" "$DB_DIR"
+ARCH_DIR="$BASE_DIR/architecture/$MONTH"
+mkdir -p "$NEWS_DIR" "$JAVA_DIR" "$SPRING_DIR" "$DB_DIR" "$ARCH_DIR"
 
-# Catch-up 가드: 오늘 4개 카테고리 파일이 모두 존재하고 비어있지 않으면 종료 (launchd RunAtLoad 중복 실행 방지)
+# Catch-up 가드: 오늘 5개 카테고리 파일이 모두 존재하고 비어있지 않으면 종료 (launchd RunAtLoad 중복 실행 방지)
 if [ -s "$NEWS_DIR/${DATE}.md" ] && \
    [ -s "$JAVA_DIR/${DATE}.md" ] && \
    [ -s "$SPRING_DIR/${DATE}.md" ] && \
-   [ -s "$DB_DIR/${DATE}.md" ]; then
+   [ -s "$DB_DIR/${DATE}.md" ] && \
+   [ -s "$ARCH_DIR/${DATE}.md" ]; then
   echo "[$DATE] 이미 생성 완료 — 건너뜀"
   exit 0
 fi
@@ -44,15 +46,18 @@ NEWS_FILE=$(get_filename "$NEWS_DIR")
 JAVA_FILE=$(get_filename "$JAVA_DIR")
 SPRING_FILE=$(get_filename "$SPRING_DIR")
 DB_FILE=$(get_filename "$DB_DIR")
+ARCH_FILE=$(get_filename "$ARCH_DIR")
 
 RECENT_NEWS=$(get_recent_topics "$BASE_DIR/news")
 RECENT_JAVA=$(get_recent_topics "$BASE_DIR/java")
 RECENT_SPRING=$(get_recent_topics "$BASE_DIR/springboot")
 RECENT_DB=$(get_recent_topics "$BASE_DIR/database")
+RECENT_ARCH=$(get_recent_topics "$BASE_DIR/architecture")
 
 echo "[$DATE] 다이제스트 생성 시작... ($NEWS_FILE)"
 
 # IT 뉴스
+if [ ! -s "$NEWS_DIR/${DATE}.md" ]; then
 claude -p --allowedTools WebSearch <<EOF > "$NEWS_DIR/$NEWS_FILE"
 오늘($DATE) 백엔드/서버/클라우드/AI 관련 최신 IT 뉴스 3개를 웹 검색으로 찾아서 한국어 마크다운으로 작성해주세요. AI 개발 도구, LLM API 활용, AI를 활용한 개발 트렌드 포함.
 
@@ -66,8 +71,12 @@ ${RECENT_NEWS:-없음}
 > 💡 **왜 중요한가**: 한 문장
 EOF
 echo "✓ IT 뉴스 완료 → $NEWS_FILE"
+else
+echo "⊙ IT 뉴스 이미 존재 — 건너뜀"
+fi
 
 # Java
+if [ ! -s "$JAVA_DIR/${DATE}.md" ]; then
 claude -p <<EOF > "$JAVA_DIR/$JAVA_FILE"
 오늘($DATE) Java 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. Java 문법, JVM, 멀티스레딩, 람다/스트림, 최신 Java 버전 기능 등.
 
@@ -81,8 +90,12 @@ ${RECENT_JAVA:-없음}
 > 💡 **왜 중요한가**: 한 문장
 EOF
 echo "✓ Java 완료 → $JAVA_FILE"
+else
+echo "⊙ Java 이미 존재 — 건너뜀"
+fi
 
 # Spring Boot
+if [ ! -s "$SPRING_DIR/${DATE}.md" ]; then
 claude -p <<EOF > "$SPRING_DIR/$SPRING_FILE"
 오늘($DATE) Spring Boot 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. 의존성 주입(DI), AOP, REST API, 시큐리티, 테스트, 성능 최적화 등.
 
@@ -96,8 +109,12 @@ ${RECENT_SPRING:-없음}
 > 💡 **왜 중요한가**: 한 문장
 EOF
 echo "✓ Spring Boot 완료 → $SPRING_FILE"
+else
+echo "⊙ Spring Boot 이미 존재 — 건너뜀"
+fi
 
 # Database
+if [ ! -s "$DB_DIR/${DATE}.md" ]; then
 claude -p <<EOF > "$DB_DIR/$DB_FILE"
 오늘($DATE) Database 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. SQL, 인덱스, 트랜잭션, 쿼리 최적화, NoSQL, JPA/Hibernate 등.
 
@@ -111,6 +128,28 @@ ${RECENT_DB:-없음}
 > 💡 **왜 중요한가**: 한 문장
 EOF
 echo "✓ Database 완료 → $DB_FILE"
+else
+echo "⊙ Database 이미 존재 — 건너뜀"
+fi
+
+# 아키텍처
+if [ ! -s "$ARCH_DIR/${DATE}.md" ]; then
+claude -p <<EOF > "$ARCH_DIR/$ARCH_FILE"
+오늘($DATE) 백엔드 시니어 개발자를 위한 아키텍처 주제 1개를 한국어 마크다운으로 작성해주세요. AI 시대 시스템 설계(RAG/Agent/Vector DB 활용 아키텍처), 분산 시스템(MSA, 이벤트 드리븐, Saga), 클라우드 네이티브, DDD/Clean/Hexagonal, 확장성·가용성 패턴(CQRS, Event Sourcing, Circuit Breaker 등) 중에서 선택. 다이어그램(ASCII/Mermaid), 트레이드오프, 실제 사례를 포함하여 깊이 있게 작성.
+
+최근에 이미 다룬 주제이므로 반드시 제외해주세요:
+${RECENT_ARCH:-없음}
+
+형식:
+### 제목
+설명 (다이어그램·트레이드오프·실제 사례 포함)
+
+> 💡 **왜 중요한가**: 한 문장
+EOF
+echo "✓ 아키텍처 완료 → $ARCH_FILE"
+else
+echo "⊙ 아키텍처 이미 존재 — 건너뜀"
+fi
 
 echo "[$DATE] 다이제스트 생성 완료!"
 

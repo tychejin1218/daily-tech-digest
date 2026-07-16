@@ -1387,3 +1387,21 @@ To github.com:tychejin1218/daily-tech-digest.git
 ✓ Database 완료 → 2026-07-16.md
 ✓ 아키텍처 완료 → 2026-07-16.md (Lv2 도메인·계층 설계 (Day 11))
 [2026-07-16] 다이제스트 생성 완료!
+[main 1657b7a] Daily tech digest - 2026-07-16 (2026-07-16.md)
+ 6 files changed, 86 insertions(+)
+ create mode 100644 architecture/2026-07/2026-07-16.md
+ create mode 100644 database/2026-07/2026-07-16.md
+ create mode 100644 java/2026-07/2026-07-16.md
+ create mode 100644 news/2026-07/2026-07-16.md
+ create mode 100644 springboot/2026-07/2026-07-16.md
+To github.com:tychejin1218/daily-tech-digest.git
+   38bfd1f..1657b7a  main -> main
+[2026-07-16] GitHub push 완료!
+[2026-07-16] 이미 생성 완료 — 건너뜀
+[2026-07-17] 다이제스트 생성 시작... (2026-07-17.md) [아키텍처: Lv2 도메인·계층 설계 (Day 12)]
+✓ IT 뉴스 완료 → 2026-07-17.md
+✓ Java 완료 → 2026-07-17.md
+✓ Spring Boot 완료 → 2026-07-17.md
+✓ Database 완료 → 2026-07-17.md
+✓ 아키텍처 완료 → 2026-07-17.md (Lv2 도메인·계층 설계 (Day 12))
+[2026-07-17] 다이제스트 생성 완료!

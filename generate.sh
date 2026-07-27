@@ -1,6 +1,7 @@
 #!/bin/bash
-DATE=$(date +%Y-%m-%d)
-MONTH=$(date +%Y-%m)
+# DATE/MONTH은 환경변수로 override 가능 (regenerate-broken.sh에서 백필용으로 사용)
+DATE=${DATE:-$(date +%Y-%m-%d)}
+MONTH=${MONTH:-${DATE:0:7}}
 BASE_DIR="/Users/daekyo/personal/daily-tech-digest"
 
 # 월별 폴더 (카테고리/YYYY-MM/)
@@ -20,6 +21,52 @@ if [ -s "$NEWS_DIR/${DATE}.md" ] && \
   echo "[$DATE] 이미 생성 완료 — 건너뜀"
   exit 0
 fi
+
+# claude 호출 결과를 임시 파일에 받아 검증 후 통과분만 최종 파일로 이동
+# 사용법: run_claude <target_path> <label> [claude 추가옵션...] <<PROMPT ... PROMPT
+# 실패 시 최종 파일을 만들지 않으므로 다음 실행의 catch-up 가드가 자동 재시도
+run_claude() {
+  local target="$1"; shift
+  local label="$1"; shift
+  local tmp err rc first_line size
+  tmp=$(mktemp)
+  err=$(mktemp)
+
+  # stdin(heredoc)는 caller에서 상속됨
+  claude -p "$@" > "$tmp" 2> "$err"
+  rc=$?
+
+  if [ "$rc" -ne 0 ]; then
+    echo "✗ $label 실패 (exit=$rc) — stderr: $(head -c 300 "$err")" >&2
+    [ -s "$tmp" ] && echo "   stdout 시작: $(head -c 200 "$tmp")" >&2
+    rm -f "$tmp" "$err"
+    return 1
+  fi
+  if [ ! -s "$tmp" ]; then
+    echo "✗ $label 실패 (빈 응답)" >&2
+    rm -f "$tmp" "$err"
+    return 1
+  fi
+  first_line=$(head -c 80 "$tmp")
+  case "$first_line" in
+    "API Error"*|"Failed to authenticate"*|"Request timed out"*|"Error:"*|"Warning:"*)
+      echo "✗ $label 실패 (에러 응답): $first_line" >&2
+      rm -f "$tmp" "$err"
+      return 1
+      ;;
+  esac
+  size=$(wc -c < "$tmp" | tr -d ' ')
+  if [ "$size" -lt 500 ] && ! grep -q '^###' "$tmp"; then
+    echo "✗ $label 실패 (### 헤딩 없음, ${size}바이트 — 대화형 응답 의심): $(head -c 200 "$tmp")" >&2
+    rm -f "$tmp" "$err"
+    return 1
+  fi
+
+  mv "$tmp" "$target"
+  rm -f "$err"
+  echo "✓ $label 완료 → $(basename "$target")"
+  return 0
+}
 
 # 오늘 날짜 파일이 몇 번째인지 계산 (빈 파일은 이전 실행 실패로 간주하여 덮어쓰기)
 get_filename() {
@@ -82,10 +129,14 @@ fi
 
 echo "[$DATE] 다이제스트 생성 시작... ($NEWS_FILE) [아키텍처: $ARCH_LEVEL]"
 
+# [중요] 모든 카테고리 공통: 응답은 stdout으로 캡처되어 파일에 저장됨.
+# Claude가 "파일에 작성 완료했습니다" 같은 대화형 요약을 뱉으면 run_claude가 걸러내고 파일이 안 만들어짐.
+PREAMBLE=$'[중요 출력 형식 규칙]\n- 이 응답의 stdout이 그대로 마크다운 파일로 저장됩니다. 도구 사용, 파일 생성/저장 시도, 리드 문장, 진행 요약, 완료 안내를 절대 하지 마세요.\n- 응답 첫 문자는 반드시 `#` 세 개(### 제목) 로 시작해야 합니다. 리드 인사나 메타 설명 금지.\n- 요청한 콘텐츠 마크다운 그 자체만 출력하세요.\n\n'
+
 # IT 뉴스
 if [ ! -s "$NEWS_DIR/${DATE}.md" ]; then
-claude -p --allowedTools WebSearch <<EOF > "$NEWS_DIR/$NEWS_FILE"
-오늘($DATE) 백엔드/서버/클라우드/AI 관련 최신 IT 뉴스 3개를 웹 검색으로 찾아서 한국어 마크다운으로 작성해주세요. AI 개발 도구, LLM API 활용, AI를 활용한 개발 트렌드 포함.
+run_claude "$NEWS_DIR/$NEWS_FILE" "IT 뉴스" --allowedTools WebSearch <<EOF
+${PREAMBLE}오늘($DATE) 백엔드/서버/클라우드/AI 관련 최신 IT 뉴스 3개를 웹 검색으로 찾아서 한국어 마크다운으로 작성해주세요. AI 개발 도구, LLM API 활용, AI를 활용한 개발 트렌드 포함.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
 ${RECENT_NEWS:-없음}
@@ -96,15 +147,14 @@ ${RECENT_NEWS:-없음}
 
 > 💡 **왜 중요한가**: 한 문장
 EOF
-echo "✓ IT 뉴스 완료 → $NEWS_FILE"
 else
 echo "⊙ IT 뉴스 이미 존재 — 건너뜀"
 fi
 
 # Java
 if [ ! -s "$JAVA_DIR/${DATE}.md" ]; then
-claude -p <<EOF > "$JAVA_DIR/$JAVA_FILE"
-오늘($DATE) Java 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. Java 문법, JVM, 멀티스레딩, 람다/스트림, 최신 Java 버전 기능 등.
+run_claude "$JAVA_DIR/$JAVA_FILE" "Java" <<EOF
+${PREAMBLE}오늘($DATE) Java 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. Java 문법, JVM, 멀티스레딩, 람다/스트림, 최신 Java 버전 기능 등.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
 ${RECENT_JAVA:-없음}
@@ -115,15 +165,14 @@ ${RECENT_JAVA:-없음}
 
 > 💡 **왜 중요한가**: 한 문장
 EOF
-echo "✓ Java 완료 → $JAVA_FILE"
 else
 echo "⊙ Java 이미 존재 — 건너뜀"
 fi
 
 # Spring Boot
 if [ ! -s "$SPRING_DIR/${DATE}.md" ]; then
-claude -p <<EOF > "$SPRING_DIR/$SPRING_FILE"
-오늘($DATE) Spring Boot 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. 의존성 주입(DI), AOP, REST API, 시큐리티, 테스트, 성능 최적화 등.
+run_claude "$SPRING_DIR/$SPRING_FILE" "Spring Boot" <<EOF
+${PREAMBLE}오늘($DATE) Spring Boot 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. 의존성 주입(DI), AOP, REST API, 시큐리티, 테스트, 성능 최적화 등.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
 ${RECENT_SPRING:-없음}
@@ -134,15 +183,14 @@ ${RECENT_SPRING:-없음}
 
 > 💡 **왜 중요한가**: 한 문장
 EOF
-echo "✓ Spring Boot 완료 → $SPRING_FILE"
 else
 echo "⊙ Spring Boot 이미 존재 — 건너뜀"
 fi
 
 # Database
 if [ ! -s "$DB_DIR/${DATE}.md" ]; then
-claude -p <<EOF > "$DB_DIR/$DB_FILE"
-오늘($DATE) Database 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. SQL, 인덱스, 트랜잭션, 쿼리 최적화, NoSQL, JPA/Hibernate 등.
+run_claude "$DB_DIR/$DB_FILE" "Database" <<EOF
+${PREAMBLE}오늘($DATE) Database 관련 지식/팁 2개를 한국어 마크다운으로 작성해주세요. SQL, 인덱스, 트랜잭션, 쿼리 최적화, NoSQL, JPA/Hibernate 등.
 
 최근에 이미 다룬 주제이므로 반드시 제외해주세요:
 ${RECENT_DB:-없음}
@@ -153,15 +201,14 @@ ${RECENT_DB:-없음}
 
 > 💡 **왜 중요한가**: 한 문장
 EOF
-echo "✓ Database 완료 → $DB_FILE"
 else
 echo "⊙ Database 이미 존재 — 건너뜀"
 fi
 
 # 아키텍처 — 커리큘럼 단계에 따라 난이도를 점진적으로 올림
 if [ ! -s "$ARCH_DIR/${DATE}.md" ]; then
-claude -p <<EOF > "$ARCH_DIR/$ARCH_FILE"
-오늘($DATE)은 백엔드 시니어 개발자 아키텍처 학습의 **$ARCH_LEVEL** 단계입니다. 아래 범위 내에서 아직 다루지 않은 주제 1개를 골라 한국어 마크다운으로 깊이 있게 작성해주세요.
+run_claude "$ARCH_DIR/$ARCH_FILE" "아키텍처 ($ARCH_LEVEL)" <<EOF
+${PREAMBLE}오늘($DATE)은 백엔드 시니어 개발자 아키텍처 학습의 **$ARCH_LEVEL** 단계입니다. 아래 범위 내에서 아직 다루지 않은 주제 1개를 골라 한국어 마크다운으로 깊이 있게 작성해주세요.
 
 이번 단계 학습 범위:
 $ARCH_SCOPE
@@ -182,16 +229,19 @@ ${RECENT_ARCH:-없음}
 
 > 💡 **왜 중요한가**: 한 문장
 EOF
-echo "✓ 아키텍처 완료 → $ARCH_FILE ($ARCH_LEVEL)"
 else
 echo "⊙ 아키텍처 이미 존재 — 건너뜀"
 fi
 
 echo "[$DATE] 다이제스트 생성 완료!"
 
-# Git commit & push
-cd "$BASE_DIR"
-git add .
-git commit -m "Daily tech digest - $DATE ($NEWS_FILE)"
-git push origin main
-echo "[$DATE] GitHub push 완료!"
+# Git commit & push (SKIP_GIT=1이면 스킵 — regenerate-broken.sh에서 배치 처리용)
+if [ "${SKIP_GIT:-0}" != "1" ]; then
+  cd "$BASE_DIR"
+  git add .
+  git commit -m "Daily tech digest - $DATE ($NEWS_FILE)"
+  git push origin main
+  echo "[$DATE] GitHub push 완료!"
+else
+  echo "[$DATE] SKIP_GIT=1 — 커밋/푸시 스킵"
+fi

@@ -1,0 +1,500 @@
+==========================================
+ Phase 1: 손상 파일 스캔
+==========================================
+  [손상] news/2026-04-18 (0B): ...
+  [손상] news/2026-04-23 (56B): API Error: Unable to connect to API (ConnectionRefused) ...
+  [손상] news/2026-04-29 (56B): API Error: Unable to connect to API (ConnectionRefused) ...
+  [손상] news/2026-05-07 (56B): API Error: Unable to connect to API (ConnectionRefused) ...
+  [손상] news/2026-05-22 (135B): API Error: The socket connection was closed unexpectedly. For more information, ...
+  [손상] news/2026-05-29 (135B): API Error: The socket connection was closed unexpectedly. For more information, ...
+  [손상] news/2026-05-31 (56B): API Error: Unable to connect to API (ConnectionRefused) ...
+  [손상] news/2026-06-30 (56B): API Error: Unable to connect to API (ConnectionRefused) ...
+  [손상] news/2026-07-03 (56B): API Error: Unable to connect to API (ConnectionRefused) ...
+  [손상] news/2026-07-09 (18B): Request timed out ...
+  [손상] news/2026-07-15 (74B): Failed to authenticate. API Error: 401 Invalid authentication credentials ...
+  [손상] news/2026-07-23 (76B): Failed to authenticate. API Error: 401 OAuth access token has been revoked. ...
+  [손상] news/2026-07-24 (74B): Failed to authenticate. API Error: 401 Invalid authentication credentials ...
+  [손상] news/2026-07-25 (135B): API Error: The socket connection was closed unexpectedly. For more information, ...
+  [손상] java/2026-04-13 (187B): Failed to authenticate. API Error: 401 {"type":"error","error":{"type":"authenti...
+  [손상] java/2026-04-17 (187B): Failed to authenticate. API Error: 401 {"type":"error","error":{"type":"authenti...
+  [손상] java/2026-04-23 (56B): API Error: Unable to connect to API (ConnectionRefused) ...
+  [손상] java/2026-05-07 (57B): API Error: Unable to connect to API (FailedToOpenSocket) ...
+  [손상] java/2026-05-29 (135B): API Error: The socket connection was closed unexpectedly. For more information, ...
+  [손상] java/2026-05-31 (56B): API Error: Unable to connect to API (ConnectionRefused) ...
+  [손상] java/2026-07-04 (135B): API Error: The socket connection was closed unexpectedly. For more information, ...
+  [손상] java/2026-07-23 (76B): Failed to authenticate. API Error: 401 OAuth access token has been revoked. ...
+  [손상] java/2026-07-24 (74B): Failed to authenticate. API Error: 401 Invalid authentication credentials ...
+  [손상] springboot/2026-04-13 (187B): Failed to authenticate. API Error: 401 {"type":"error","error":{"type":"authenti...
+  [손상] springboot/2026-04-23 (56B): API Error: Unable to connect to API (ConnectionRefused) ...
+  [손상] springboot/2026-05-07 (57B): API Error: Unable to connect to API (FailedToOpenSocket) ...
+  [손상] springboot/2026-05-29 (49B): API Error: Unable to connect to API (ECONNRESET) ...
+  [손상] springboot/2026-07-23 (74B): Failed to authenticate. API Error: 401 Invalid authentication credentials ...
+  [손상] springboot/2026-07-24 (76B): Failed to authenticate. API Error: 401 OAuth access token has been revoked. ...
+  [손상] springboot/2026-07-25 (135B): API Error: The socket connection was closed unexpectedly. For more information, ...
+  [손상] springboot/2026-07-27 (172B): 두 팁 준비 완료. 오늘 다룬 주제는 `spring_boot_tips_progress.md`에 기록해서 다음...
+  [손상] database/2026-04-13 (187B): Failed to authenticate. API Error: 401 {"type":"error","error":{"type":"authenti...
+  [손상] database/2026-05-07 (56B): API Error: Unable to connect to API (ConnectionRefused) ...
+  [손상] database/2026-05-29 (0B): ...
+  [손상] database/2026-07-23 (76B): Failed to authenticate. API Error: 401 OAuth access token has been revoked. ...
+  [손상] database/2026-07-24 (74B): Failed to authenticate. API Error: 401 Invalid authentication credentials ...
+  [손상] database/2026-07-25 (322B): DB 팁 목록은 사용자가 프롬프트로 직접 관리하고 있으므로 별도 메모리 업�...
+  [손상] database/2026-07-27 (102B): 오늘의 Database 팁 2개 정리하고 `spring_boot_tips_progress.md`에 기록 완료했습니다...
+  [손상] architecture/2026-07-16 (259B): 문서 작성을 마쳤습니다. Bounded Context와 Aggregate를 Lv2 관점에서 다뤘고, 다이...
+  [손상] architecture/2026-07-23 (76B): Failed to authenticate. API Error: 401 OAuth access token has been revoked. ...
+  [손상] architecture/2026-07-24 (74B): Failed to authenticate. API Error: 401 Invalid authentication credentials ...
+  [손상] architecture/2026-07-25 (59B): API Error: Stream idle timeout - partial response received ...
+  [손상] architecture/2026-07-27 (356B): 오늘의 Lv3 Day 21 학습 자료로 **Outbox 패턴**을 다뤘습니다. 이중 쓰기 문제 →...
+
+==========================================
+ Phase 2: 완전 누락 날짜 감지 (5개 카테고리 모두 없는 날)
+==========================================
+  범위: 2026-04-07 ~ 2026-07-27 (오늘 제외)
+  [누락] 2026-04-19
+  [누락] 2026-04-20
+  [누락] 2026-05-23
+  [누락] 2026-05-24
+  [누락] 2026-05-25
+  [누락] 2026-05-30
+  [누락] 2026-06-07
+  [누락] 2026-06-28
+  [누락] 2026-07-05
+  [누락] 2026-07-06
+  [누락] 2026-07-07
+  [누락] 2026-07-08
+  [누락] 2026-07-10
+  [누락] 2026-07-11
+  [누락] 2026-07-12
+
+==========================================
+ 요약
+==========================================
+  재생성 대상 날짜 (34일):
+    2026-04-13
+    2026-04-17
+    2026-04-18
+    2026-04-19
+    2026-04-20
+    2026-04-23
+    2026-04-29
+    2026-05-07
+    2026-05-22
+    2026-05-23
+    2026-05-24
+    2026-05-25
+    2026-05-29
+    2026-05-30
+    2026-05-31
+    2026-06-07
+    2026-06-28
+    2026-06-30
+    2026-07-03
+    2026-07-04
+    2026-07-05
+    2026-07-06
+    2026-07-07
+    2026-07-08
+    2026-07-09
+    2026-07-10
+    2026-07-11
+    2026-07-12
+    2026-07-15
+    2026-07-16
+    2026-07-23
+    2026-07-24
+    2026-07-25
+    2026-07-27
+
+==========================================
+ Phase 3: 손상 파일 삭제
+==========================================
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-04/2026-04-18.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-04/2026-04-23.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-04/2026-04-29.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-05/2026-05-07.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-05/2026-05-22.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-05/2026-05-29.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-05/2026-05-31.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-06/2026-06-30.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-07/2026-07-03.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-07/2026-07-09.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-07/2026-07-15.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-07/2026-07-23.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-07/2026-07-24.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/news/2026-07/2026-07-25.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/java/2026-04/2026-04-13.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/java/2026-04/2026-04-17.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/java/2026-04/2026-04-23.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/java/2026-05/2026-05-07.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/java/2026-05/2026-05-29.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/java/2026-05/2026-05-31.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/java/2026-07/2026-07-04.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/java/2026-07/2026-07-23.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/java/2026-07/2026-07-24.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/springboot/2026-04/2026-04-13.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/springboot/2026-04/2026-04-23.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/springboot/2026-05/2026-05-07.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/springboot/2026-05/2026-05-29.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/springboot/2026-07/2026-07-23.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/springboot/2026-07/2026-07-24.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/springboot/2026-07/2026-07-25.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/springboot/2026-07/2026-07-27.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/database/2026-04/2026-04-13.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/database/2026-05/2026-05-07.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/database/2026-05/2026-05-29.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/database/2026-07/2026-07-23.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/database/2026-07/2026-07-24.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/database/2026-07/2026-07-25.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/database/2026-07/2026-07-27.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/architecture/2026-07/2026-07-16.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/architecture/2026-07/2026-07-23.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/architecture/2026-07/2026-07-24.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/architecture/2026-07/2026-07-25.md
+  삭제: /Users/daekyo/personal/daily-tech-digest/architecture/2026-07/2026-07-27.md
+
+==========================================
+ Phase 4: 재생성 (DATE override + SKIP_GIT=1)
+==========================================
+
+▶▶▶ 2026-04-13
+[2026-04-13] 다이제스트 생성 시작... (2026-04-13(2).md) [아키텍처: Lv2 도메인·계층 설계 (Day 18)]
+⊙ IT 뉴스 이미 존재 — 건너뜀
+✓ Java 완료 → 2026-04-13.md
+✓ Spring Boot 완료 → 2026-04-13.md
+✓ Database 완료 → 2026-04-13.md
+✓ 아키텍처 (Lv2 도메인·계층 설계 (Day 18)) 완료 → 2026-04-13.md
+[2026-04-13] 다이제스트 생성 완료!
+[2026-04-13] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-04-17
+[2026-04-17] 다이제스트 생성 시작... (2026-04-17(2).md) [아키텍처: Lv2 도메인·계층 설계 (Day 19)]
+⊙ IT 뉴스 이미 존재 — 건너뜀
+✓ Java 완료 → 2026-04-17.md
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+✓ 아키텍처 (Lv2 도메인·계층 설계 (Day 19)) 완료 → 2026-04-17.md
+[2026-04-17] 다이제스트 생성 완료!
+[2026-04-17] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-04-18
+[2026-04-18] 다이제스트 생성 시작... (2026-04-18.md) [아키텍처: Lv2 도메인·계층 설계 (Day 20)]
+✓ IT 뉴스 완료 → 2026-04-18.md
+✓ Java 완료 → 2026-04-18.md
+✓ Spring Boot 완료 → 2026-04-18.md
+✓ Database 완료 → 2026-04-18.md
+✓ 아키텍처 (Lv2 도메인·계층 설계 (Day 20)) 완료 → 2026-04-18.md
+[2026-04-18] 다이제스트 생성 완료!
+[2026-04-18] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-04-19
+[2026-04-19] 다이제스트 생성 시작... (2026-04-19.md) [아키텍처: Lv3 분산 시스템 (Day 21)]
+✓ IT 뉴스 완료 → 2026-04-19.md
+✓ Java 완료 → 2026-04-19.md
+✓ Spring Boot 완료 → 2026-04-19.md
+✓ Database 완료 → 2026-04-19.md
+✓ 아키텍처 (Lv3 분산 시스템 (Day 21)) 완료 → 2026-04-19.md
+[2026-04-19] 다이제스트 생성 완료!
+[2026-04-19] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-04-20
+[2026-04-20] 다이제스트 생성 시작... (2026-04-20.md) [아키텍처: Lv3 분산 시스템 (Day 22)]
+✓ IT 뉴스 완료 → 2026-04-20.md
+✓ Java 완료 → 2026-04-20.md
+✓ Spring Boot 완료 → 2026-04-20.md
+✓ Database 완료 → 2026-04-20.md
+✓ 아키텍처 (Lv3 분산 시스템 (Day 22)) 완료 → 2026-04-20.md
+[2026-04-20] 다이제스트 생성 완료!
+[2026-04-20] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-04-23
+[2026-04-23] 다이제스트 생성 시작... (2026-04-23.md) [아키텍처: Lv3 분산 시스템 (Day 23)]
+✓ IT 뉴스 완료 → 2026-04-23.md
+✓ Java 완료 → 2026-04-23.md
+✓ Spring Boot 완료 → 2026-04-23.md
+⊙ Database 이미 존재 — 건너뜀
+✓ 아키텍처 (Lv3 분산 시스템 (Day 23)) 완료 → 2026-04-23.md
+[2026-04-23] 다이제스트 생성 완료!
+[2026-04-23] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-04-29
+[2026-04-29] 다이제스트 생성 시작... (2026-04-29.md) [아키텍처: Lv3 분산 시스템 (Day 24)]
+✓ IT 뉴스 완료 → 2026-04-29.md
+⊙ Java 이미 존재 — 건너뜀
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+✓ 아키텍처 (Lv3 분산 시스템 (Day 24)) 완료 → 2026-04-29.md
+[2026-04-29] 다이제스트 생성 완료!
+[2026-04-29] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-05-07
+[2026-05-07] 다이제스트 생성 시작... (2026-05-07.md) [아키텍처: Lv3 분산 시스템 (Day 25)]
+✓ IT 뉴스 완료 → 2026-05-07.md
+✓ Java 완료 → 2026-05-07.md
+✓ Spring Boot 완료 → 2026-05-07.md
+✓ Database 완료 → 2026-05-07.md
+✓ 아키텍처 (Lv3 분산 시스템 (Day 25)) 완료 → 2026-05-07.md
+[2026-05-07] 다이제스트 생성 완료!
+[2026-05-07] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-05-22
+[2026-05-22] 다이제스트 생성 시작... (2026-05-22.md) [아키텍처: Lv3 분산 시스템 (Day 26)]
+✓ IT 뉴스 완료 → 2026-05-22.md
+⊙ Java 이미 존재 — 건너뜀
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+✓ 아키텍처 (Lv3 분산 시스템 (Day 26)) 완료 → 2026-05-22.md
+[2026-05-22] 다이제스트 생성 완료!
+[2026-05-22] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-05-23
+[2026-05-23] 다이제스트 생성 시작... (2026-05-23.md) [아키텍처: Lv3 분산 시스템 (Day 27)]
+✓ IT 뉴스 완료 → 2026-05-23.md
+✓ Java 완료 → 2026-05-23.md
+✓ Spring Boot 완료 → 2026-05-23.md
+✓ Database 완료 → 2026-05-23.md
+✓ 아키텍처 (Lv3 분산 시스템 (Day 27)) 완료 → 2026-05-23.md
+[2026-05-23] 다이제스트 생성 완료!
+[2026-05-23] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-05-24
+[2026-05-24] 다이제스트 생성 시작... (2026-05-24.md) [아키텍처: Lv3 분산 시스템 (Day 28)]
+✓ IT 뉴스 완료 → 2026-05-24.md
+✓ Java 완료 → 2026-05-24.md
+✓ Spring Boot 완료 → 2026-05-24.md
+✓ Database 완료 → 2026-05-24.md
+✓ 아키텍처 (Lv3 분산 시스템 (Day 28)) 완료 → 2026-05-24.md
+[2026-05-24] 다이제스트 생성 완료!
+[2026-05-24] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-05-25
+[2026-05-25] 다이제스트 생성 시작... (2026-05-25.md) [아키텍처: Lv3 분산 시스템 (Day 29)]
+✓ IT 뉴스 완료 → 2026-05-25.md
+✓ Java 완료 → 2026-05-25.md
+✓ Spring Boot 완료 → 2026-05-25.md
+✓ Database 완료 → 2026-05-25.md
+✓ 아키텍처 (Lv3 분산 시스템 (Day 29)) 완료 → 2026-05-25.md
+[2026-05-25] 다이제스트 생성 완료!
+[2026-05-25] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-05-29
+[2026-05-29] 다이제스트 생성 시작... (2026-05-29.md) [아키텍처: Lv3 분산 시스템 (Day 30)]
+✓ IT 뉴스 완료 → 2026-05-29.md
+✓ Java 완료 → 2026-05-29.md
+✓ Spring Boot 완료 → 2026-05-29.md
+✓ Database 완료 → 2026-05-29.md
+✓ 아키텍처 (Lv3 분산 시스템 (Day 30)) 완료 → 2026-05-29.md
+[2026-05-29] 다이제스트 생성 완료!
+[2026-05-29] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-05-30
+[2026-05-30] 다이제스트 생성 시작... (2026-05-30.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 31)]
+✓ IT 뉴스 완료 → 2026-05-30.md
+✓ Java 완료 → 2026-05-30.md
+✓ Spring Boot 완료 → 2026-05-30.md
+✓ Database 완료 → 2026-05-30.md
+✓ 아키텍처 (Lv4 클라우드 네이티브·가용성 (Day 31)) 완료 → 2026-05-30.md
+[2026-05-30] 다이제스트 생성 완료!
+[2026-05-30] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-05-31
+[2026-05-31] 다이제스트 생성 시작... (2026-05-31.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 32)]
+✓ IT 뉴스 완료 → 2026-05-31.md
+✓ Java 완료 → 2026-05-31.md
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+✓ 아키텍처 (Lv4 클라우드 네이티브·가용성 (Day 32)) 완료 → 2026-05-31.md
+[2026-05-31] 다이제스트 생성 완료!
+[2026-05-31] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-06-07
+[2026-06-07] 다이제스트 생성 시작... (2026-06-07.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 33)]
+✓ IT 뉴스 완료 → 2026-06-07.md
+✓ Java 완료 → 2026-06-07.md
+✓ Spring Boot 완료 → 2026-06-07.md
+✓ Database 완료 → 2026-06-07.md
+✓ 아키텍처 (Lv4 클라우드 네이티브·가용성 (Day 33)) 완료 → 2026-06-07.md
+[2026-06-07] 다이제스트 생성 완료!
+[2026-06-07] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-06-28
+[2026-06-28] 다이제스트 생성 시작... (2026-06-28.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 34)]
+✓ IT 뉴스 완료 → 2026-06-28.md
+✓ Java 완료 → 2026-06-28.md
+✓ Spring Boot 완료 → 2026-06-28.md
+✓ Database 완료 → 2026-06-28.md
+✓ 아키텍처 (Lv4 클라우드 네이티브·가용성 (Day 34)) 완료 → 2026-06-28.md
+[2026-06-28] 다이제스트 생성 완료!
+[2026-06-28] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-06-30
+[2026-06-30] 다이제스트 생성 시작... (2026-06-30.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 34)]
+✓ IT 뉴스 완료 → 2026-06-30.md
+⊙ Java 이미 존재 — 건너뜀
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+⊙ 아키텍처 이미 존재 — 건너뜀
+[2026-06-30] 다이제스트 생성 완료!
+[2026-06-30] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-03
+[2026-07-03] 다이제스트 생성 시작... (2026-07-03.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 34)]
+✓ IT 뉴스 완료 → 2026-07-03.md
+⊙ Java 이미 존재 — 건너뜀
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+⊙ 아키텍처 이미 존재 — 건너뜀
+[2026-07-03] 다이제스트 생성 완료!
+[2026-07-03] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-04
+[2026-07-04] 다이제스트 생성 시작... (2026-07-04(2).md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 34)]
+⊙ IT 뉴스 이미 존재 — 건너뜀
+✓ Java 완료 → 2026-07-04.md
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+⊙ 아키텍처 이미 존재 — 건너뜀
+[2026-07-04] 다이제스트 생성 완료!
+[2026-07-04] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-05
+[2026-07-05] 다이제스트 생성 시작... (2026-07-05.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 35)]
+✓ IT 뉴스 완료 → 2026-07-05.md
+✓ Java 완료 → 2026-07-05.md
+✓ Spring Boot 완료 → 2026-07-05.md
+✓ Database 완료 → 2026-07-05.md
+✓ 아키텍처 (Lv4 클라우드 네이티브·가용성 (Day 35)) 완료 → 2026-07-05.md
+[2026-07-05] 다이제스트 생성 완료!
+[2026-07-05] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-06
+[2026-07-06] 다이제스트 생성 시작... (2026-07-06.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 36)]
+✓ IT 뉴스 완료 → 2026-07-06.md
+✓ Java 완료 → 2026-07-06.md
+✓ Spring Boot 완료 → 2026-07-06.md
+✓ Database 완료 → 2026-07-06.md
+✓ 아키텍처 (Lv4 클라우드 네이티브·가용성 (Day 36)) 완료 → 2026-07-06.md
+[2026-07-06] 다이제스트 생성 완료!
+[2026-07-06] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-07
+[2026-07-07] 다이제스트 생성 시작... (2026-07-07.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 37)]
+✓ IT 뉴스 완료 → 2026-07-07.md
+✓ Java 완료 → 2026-07-07.md
+✓ Spring Boot 완료 → 2026-07-07.md
+✓ Database 완료 → 2026-07-07.md
+✓ 아키텍처 (Lv4 클라우드 네이티브·가용성 (Day 37)) 완료 → 2026-07-07.md
+[2026-07-07] 다이제스트 생성 완료!
+[2026-07-07] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-08
+[2026-07-08] 다이제스트 생성 시작... (2026-07-08.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 38)]
+✓ IT 뉴스 완료 → 2026-07-08.md
+✓ Java 완료 → 2026-07-08.md
+✓ Spring Boot 완료 → 2026-07-08.md
+✓ Database 완료 → 2026-07-08.md
+✓ 아키텍처 (Lv4 클라우드 네이티브·가용성 (Day 38)) 완료 → 2026-07-08.md
+[2026-07-08] 다이제스트 생성 완료!
+[2026-07-08] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-09
+[2026-07-09] 다이제스트 생성 시작... (2026-07-09.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 38)]
+✓ IT 뉴스 완료 → 2026-07-09.md
+⊙ Java 이미 존재 — 건너뜀
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+⊙ 아키텍처 이미 존재 — 건너뜀
+[2026-07-09] 다이제스트 생성 완료!
+[2026-07-09] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-10
+[2026-07-10] 다이제스트 생성 시작... (2026-07-10.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 39)]
+✓ IT 뉴스 완료 → 2026-07-10.md
+✓ Java 완료 → 2026-07-10.md
+✓ Spring Boot 완료 → 2026-07-10.md
+✓ Database 완료 → 2026-07-10.md
+✓ 아키텍처 (Lv4 클라우드 네이티브·가용성 (Day 39)) 완료 → 2026-07-10.md
+[2026-07-10] 다이제스트 생성 완료!
+[2026-07-10] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-11
+[2026-07-11] 다이제스트 생성 시작... (2026-07-11.md) [아키텍처: Lv4 클라우드 네이티브·가용성 (Day 40)]
+✓ IT 뉴스 완료 → 2026-07-11.md
+✓ Java 완료 → 2026-07-11.md
+✓ Spring Boot 완료 → 2026-07-11.md
+✓ Database 완료 → 2026-07-11.md
+✓ 아키텍처 (Lv4 클라우드 네이티브·가용성 (Day 40)) 완료 → 2026-07-11.md
+[2026-07-11] 다이제스트 생성 완료!
+[2026-07-11] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-12
+[2026-07-12] 다이제스트 생성 시작... (2026-07-12.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 41)]
+✓ IT 뉴스 완료 → 2026-07-12.md
+✓ Java 완료 → 2026-07-12.md
+✓ Spring Boot 완료 → 2026-07-12.md
+✓ Database 완료 → 2026-07-12.md
+✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 41)) 완료 → 2026-07-12.md
+[2026-07-12] 다이제스트 생성 완료!
+[2026-07-12] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-15
+[2026-07-15] 다이제스트 생성 시작... (2026-07-15.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 41)]
+✓ IT 뉴스 완료 → 2026-07-15.md
+⊙ Java 이미 존재 — 건너뜀
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+⊙ 아키텍처 이미 존재 — 건너뜀
+[2026-07-15] 다이제스트 생성 완료!
+[2026-07-15] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-16
+[2026-07-16] 다이제스트 생성 시작... (2026-07-16(2).md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 42)]
+⊙ IT 뉴스 이미 존재 — 건너뜀
+⊙ Java 이미 존재 — 건너뜀
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 42)) 완료 → 2026-07-16.md
+[2026-07-16] 다이제스트 생성 완료!
+[2026-07-16] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-23
+[2026-07-23] 다이제스트 생성 시작... (2026-07-23.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 43)]
+✓ IT 뉴스 완료 → 2026-07-23.md
+✓ Java 완료 → 2026-07-23.md
+✓ Spring Boot 완료 → 2026-07-23.md
+✓ Database 완료 → 2026-07-23.md
+✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 43)) 완료 → 2026-07-23.md
+[2026-07-23] 다이제스트 생성 완료!
+[2026-07-23] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-24
+[2026-07-24] 다이제스트 생성 시작... (2026-07-24.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 44)]
+✓ IT 뉴스 완료 → 2026-07-24.md
+✓ Java 완료 → 2026-07-24.md
+✓ Spring Boot 완료 → 2026-07-24.md
+✓ Database 완료 → 2026-07-24.md
+✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 44)) 완료 → 2026-07-24.md
+[2026-07-24] 다이제스트 생성 완료!
+[2026-07-24] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-25
+[2026-07-25] 다이제스트 생성 시작... (2026-07-25.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 45)]
+✓ IT 뉴스 완료 → 2026-07-25.md
+⊙ Java 이미 존재 — 건너뜀
+✓ Spring Boot 완료 → 2026-07-25.md
+✓ Database 완료 → 2026-07-25.md
+✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 45)) 완료 → 2026-07-25.md
+[2026-07-25] 다이제스트 생성 완료!
+[2026-07-25] SKIP_GIT=1 — 커밋/푸시 스킵
+
+▶▶▶ 2026-07-27
+[2026-07-27] 다이제스트 생성 시작... (2026-07-27(2).md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 46)]
+⊙ IT 뉴스 이미 존재 — 건너뜀
+⊙ Java 이미 존재 — 건너뜀
+✓ Spring Boot 완료 → 2026-07-27.md
+✓ Database 완료 → 2026-07-27.md
+✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 46)) 완료 → 2026-07-27.md
+[2026-07-27] 다이제스트 생성 완료!
+[2026-07-27] SKIP_GIT=1 — 커밋/푸시 스킵
+
+==========================================
+ Phase 5: 재검증 & git commit/push
+==========================================

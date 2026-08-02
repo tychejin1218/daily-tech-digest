@@ -1671,3 +1671,21 @@ To github.com:tychejin1218/daily-tech-digest.git
 ✗ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 51)) 실패 (exit=1) — stderr: 
    stdout 시작: API Error: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
 [2026-08-01] 다이제스트 생성 완료!
+[main 588c39a] Daily tech digest - 2026-08-01 (2026-08-01.md)
+ 4 files changed, 74 insertions(+)
+ create mode 100644 database/2026-08/2026-08-01.md
+ create mode 100644 java/2026-08/2026-08-01.md
+ create mode 100644 springboot/2026-08/2026-08-01.md
+To github.com:tychejin1218/daily-tech-digest.git
+   dee4345..588c39a  main -> main
+[2026-08-01] GitHub push 완료!
+[2026-08-02] 다이제스트 생성 시작... (2026-08-02.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 51)]
+✗ IT 뉴스 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
+✓ Java 완료 → 2026-08-02.md
+✓ Spring Boot 완료 → 2026-08-02.md
+✗ Database 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: Unable to connect to API (ConnectionRefused)
+✗ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 51)) 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: Unable to connect to API (FailedToOpenSocket)
+[2026-08-02] 다이제스트 생성 완료!

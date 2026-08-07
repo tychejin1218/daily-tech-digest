@@ -1775,3 +1775,24 @@ To github.com:tychejin1218/daily-tech-digest.git
 ✓ Database 완료 → 2026-08-06.md
 ✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 54)) 완료 → 2026-08-06.md
 [2026-08-06] 다이제스트 생성 완료!
+[main ca4bd51] Daily tech digest - 2026-08-06 (2026-08-06.md)
+ 6 files changed, 383 insertions(+)
+ create mode 100644 architecture/2026-08/2026-08-06.md
+ create mode 100644 database/2026-08/2026-08-06.md
+ create mode 100644 java/2026-08/2026-08-06.md
+ create mode 100644 news/2026-08/2026-08-06.md
+ create mode 100644 springboot/2026-08/2026-08-06.md
+To github.com:tychejin1218/daily-tech-digest.git
+   d5ff011..ca4bd51  main -> main
+[2026-08-06] GitHub push 완료!
+[2026-08-06] 이미 생성 완료 — 건너뜀
+[2026-08-06] 이미 생성 완료 — 건너뜀
+[2026-08-07] 다이제스트 생성 시작... (2026-08-07.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 55)]
+✗ IT 뉴스 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: Unable to connect to API (ConnectionRefused)
+✓ Java 완료 → 2026-08-07.md
+✓ Spring Boot 완료 → 2026-08-07.md
+✓ Database 완료 → 2026-08-07.md
+✗ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 55)) 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: Stream idle timeout - partial response received
+[2026-08-07] 다이제스트 생성 완료!

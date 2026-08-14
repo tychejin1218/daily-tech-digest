@@ -1916,3 +1916,18 @@ To github.com:tychejin1218/daily-tech-digest.git
 ✗ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 61)) 실패 (exit=1) — stderr: 
    stdout 시작: API Error: Stream idle timeout - partial response received
 [2026-08-14] 다이제스트 생성 완료!
+[main e464292] Daily tech digest - 2026-08-14 (2026-08-14.md)
+ 4 files changed, 137 insertions(+)
+ create mode 100644 database/2026-08/2026-08-14.md
+ create mode 100644 java/2026-08/2026-08-14.md
+ create mode 100644 springboot/2026-08/2026-08-14.md
+To github.com:tychejin1218/daily-tech-digest.git
+   139d3ee..e464292  main -> main
+[2026-08-14] GitHub push 완료!
+[2026-08-14] 다이제스트 생성 시작... (2026-08-14.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 61)]
+✓ IT 뉴스 완료 → 2026-08-14.md
+⊙ Java 이미 존재 — 건너뜀
+⊙ Spring Boot 이미 존재 — 건너뜀
+⊙ Database 이미 존재 — 건너뜀
+✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 61)) 완료 → 2026-08-14.md
+[2026-08-14] 다이제스트 생성 완료!

@@ -1931,3 +1931,20 @@ To github.com:tychejin1218/daily-tech-digest.git
 ⊙ Database 이미 존재 — 건너뜀
 ✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 61)) 완료 → 2026-08-14.md
 [2026-08-14] 다이제스트 생성 완료!
+[main baddd9e] Daily tech digest - 2026-08-14 (2026-08-14.md)
+ 3 files changed, 184 insertions(+)
+ create mode 100644 architecture/2026-08/2026-08-14.md
+ create mode 100644 news/2026-08/2026-08-14.md
+To github.com:tychejin1218/daily-tech-digest.git
+   e464292..baddd9e  main -> main
+[2026-08-14] GitHub push 완료!
+[2026-08-15] 다이제스트 생성 시작... (2026-08-15.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 62)]
+✗ IT 뉴스 실패 (exit=1) — stderr: 
+   stdout 시작: Request timed out
+✗ Java 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
+✓ Spring Boot 완료 → 2026-08-15.md
+✓ Database 완료 → 2026-08-15.md
+✗ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 62)) 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
+[2026-08-15] 다이제스트 생성 완료!

@@ -2038,3 +2038,20 @@ To github.com:tychejin1218/daily-tech-digest.git
 ✗ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 65)) 실패 (exit=1) — stderr: 
    stdout 시작: Failed to authenticate. API Error: 401 OAuth access token has expired. Re-authenticate to continue.
 [2026-08-23] 다이제스트 생성 완료!
+[main 539972e] Daily tech digest - 2026-08-23 (2026-08-23.md)
+ 1 file changed, 21 insertions(+)
+To github.com:tychejin1218/daily-tech-digest.git
+   a75a7bd..539972e  main -> main
+[2026-08-23] GitHub push 완료!
+[2026-08-23] 다이제스트 생성 시작... (2026-08-23.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 65)]
+✗ IT 뉴스 실패 (exit=1) — stderr: 
+   stdout 시작: Failed to authenticate. API Error: 401 OAuth access token has expired. Re-authenticate to continue.
+✗ Java 실패 (exit=1) — stderr: 
+   stdout 시작: Failed to authenticate. API Error: 401 OAuth access token has expired. Re-authenticate to continue.
+✗ Spring Boot 실패 (exit=1) — stderr: 
+   stdout 시작: Failed to authenticate. API Error: 401 OAuth access token has expired. Re-authenticate to continue.
+✗ Database 실패 (exit=1) — stderr: 
+   stdout 시작: Failed to authenticate. API Error: 401 OAuth access token has expired. Re-authenticate to continue.
+✗ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 65)) 실패 (exit=1) — stderr: 
+   stdout 시작: Failed to authenticate. API Error: 401 OAuth access token has expired. Re-authenticate to continue.
+[2026-08-23] 다이제스트 생성 완료!

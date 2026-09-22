@@ -2562,3 +2562,21 @@ To github.com:tychejin1218/daily-tech-digest.git
 ✓ Database 완료 → 2026-09-22.md
 ✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 90)) 완료 → 2026-09-22.md
 [2026-09-22] 다이제스트 생성 완료!
+[main 5f163e1] Daily tech digest - 2026-09-22 (2026-09-22.md)
+ 6 files changed, 350 insertions(+)
+ create mode 100644 architecture/2026-09/2026-09-22.md
+ create mode 100644 database/2026-09/2026-09-22.md
+ create mode 100644 java/2026-09/2026-09-22.md
+ create mode 100644 news/2026-09/2026-09-22.md
+ create mode 100644 springboot/2026-09/2026-09-22.md
+To github.com:tychejin1218/daily-tech-digest.git
+   12ef0f2..5f163e1  main -> main
+[2026-09-22] GitHub push 완료!
+[2026-09-22] 이미 생성 완료 — 건너뜀
+[2026-09-23] 다이제스트 생성 시작... (2026-09-23.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 91)]
+✓ IT 뉴스 완료 → 2026-09-23.md
+✓ Java 완료 → 2026-09-23.md
+✓ Spring Boot 완료 → 2026-09-23.md
+✓ Database 완료 → 2026-09-23.md
+✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 91)) 완료 → 2026-09-23.md
+[2026-09-23] 다이제스트 생성 완료!

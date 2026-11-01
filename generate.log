@@ -3280,3 +3280,23 @@ and the repository exists.
 ✗ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 126)) 실패 (exit=1) — stderr: 
    stdout 시작: API Error: Unable to connect to API: SSL certificate verification failed. Check your proxy or corporate SSL certificates
 [2026-11-01] 다이제스트 생성 완료!
+[main d991601] Daily tech digest - 2026-11-01 (2026-11-01.md)
+ 1 file changed, 20 insertions(+)
+ssh: connect to host github.com port 22: Operation timed out
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[2026-11-01] GitHub push 완료!
+[2026-11-01] 다이제스트 생성 시작... (2026-11-01.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 126)]
+✗ IT 뉴스 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: Unable to connect to API: SSL certificate verification failed. Check your proxy or corporate SSL certificates
+✗ Java 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: Unable to connect to API: SSL certificate verification failed. Check your proxy or corporate SSL certificates
+✗ Spring Boot 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: Unable to connect to API: SSL certificate verification failed. Check your proxy or corporate SSL certificates
+✗ Database 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: Unable to connect to API: SSL certificate verification failed. Check your proxy or corporate SSL certificates
+✗ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 126)) 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: Unable to connect to API: SSL certificate verification failed. Check your proxy or corporate SSL certificates
+[2026-11-01] 다이제스트 생성 완료!

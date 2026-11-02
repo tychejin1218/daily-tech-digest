@@ -10,14 +10,18 @@ JAVA_DIR="$BASE_DIR/java/$MONTH"
 SPRING_DIR="$BASE_DIR/springboot/$MONTH"
 DB_DIR="$BASE_DIR/database/$MONTH"
 ARCH_DIR="$BASE_DIR/architecture/$MONTH"
-mkdir -p "$NEWS_DIR" "$JAVA_DIR" "$SPRING_DIR" "$DB_DIR" "$ARCH_DIR"
+REACT_DIR="$BASE_DIR/react/$MONTH"
+KOTLIN_DIR="$BASE_DIR/kotlin/$MONTH"
+mkdir -p "$NEWS_DIR" "$JAVA_DIR" "$SPRING_DIR" "$DB_DIR" "$ARCH_DIR" "$REACT_DIR" "$KOTLIN_DIR"
 
 # Catch-up 가드: 오늘 5개 카테고리 파일이 모두 존재하고 비어있지 않으면 종료 (launchd RunAtLoad 중복 실행 방지)
 if [ -s "$NEWS_DIR/${DATE}.md" ] && \
    [ -s "$JAVA_DIR/${DATE}.md" ] && \
    [ -s "$SPRING_DIR/${DATE}.md" ] && \
    [ -s "$DB_DIR/${DATE}.md" ] && \
-   [ -s "$ARCH_DIR/${DATE}.md" ]; then
+   [ -s "$ARCH_DIR/${DATE}.md" ] && \
+   [ -s "$REACT_DIR/${DATE}.md" ] && \
+   [ -s "$KOTLIN_DIR/${DATE}.md" ]; then
   echo "[$DATE] 이미 생성 완료 — 건너뜀"
   exit 0
 fi
@@ -94,12 +98,16 @@ JAVA_FILE=$(get_filename "$JAVA_DIR")
 SPRING_FILE=$(get_filename "$SPRING_DIR")
 DB_FILE=$(get_filename "$DB_DIR")
 ARCH_FILE=$(get_filename "$ARCH_DIR")
+REACT_FILE=$(get_filename "$REACT_DIR")
+KOTLIN_FILE=$(get_filename "$KOTLIN_DIR")
 
 RECENT_NEWS=$(get_recent_topics "$BASE_DIR/news")
 RECENT_JAVA=$(get_recent_topics "$BASE_DIR/java")
 RECENT_SPRING=$(get_recent_topics "$BASE_DIR/springboot")
 RECENT_DB=$(get_recent_topics "$BASE_DIR/database")
 RECENT_ARCH=$(get_recent_topics "$BASE_DIR/architecture")
+RECENT_REACT=$(get_recent_topics "$BASE_DIR/react")
+RECENT_KOTLIN=$(get_recent_topics "$BASE_DIR/kotlin")
 
 # 아키텍처 커리큘럼 단계 자동 결정 — 메인 일일 파일(YYYY-MM-DD.md)만 카운트하여 오늘이 몇 일차인지 계산
 ARCH_COUNT=$(ls "$BASE_DIR/architecture"/[0-9][0-9][0-9][0-9]-[0-9][0-9]/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md 2>/dev/null | wc -l | tr -d ' ')
@@ -231,6 +239,42 @@ ${RECENT_ARCH:-없음}
 EOF
 else
 echo "⊙ 아키텍처 이미 존재 — 건너뜀"
+fi
+
+# React 기초
+if [ ! -s "$REACT_DIR/${DATE}.md" ]; then
+run_claude "$REACT_DIR/$REACT_FILE" "React" <<EOF
+${PREAMBLE}오늘($DATE) React 관련 기초 지식/팁 2개를 한국어 마크다운으로 작성해주세요. JSX, 컴포넌트(함수형), Props, State, Hooks(useState, useEffect, useRef, useMemo, useCallback, useContext), 이벤트 처리, 조건부 렌더링, 리스트 렌더링, 폼 처리, React Router, Context API, 상태관리(Redux/Zustand), 컴포넌트 라이프사이클, 커스텀 Hook, React 18+ 신기능 등.
+
+최근에 이미 다룬 주제이므로 반드시 제외해주세요:
+${RECENT_REACT:-없음}
+
+형식:
+### 제목
+설명 (2-3문장)
+
+> 💡 **왜 중요한가**: 한 문장
+EOF
+else
+echo "⊙ React 이미 존재 — 건너뜀"
+fi
+
+# Kotlin 기초
+if [ ! -s "$KOTLIN_DIR/${DATE}.md" ]; then
+run_claude "$KOTLIN_DIR/$KOTLIN_FILE" "Kotlin" <<EOF
+${PREAMBLE}오늘($DATE) Kotlin 관련 기초 지식/팁 2개를 한국어 마크다운으로 작성해주세요. 기본 문법(val/var, 타입 추론), null safety(?., ?:, !!), 데이터 클래스, sealed class, object/companion object, 확장 함수, 람다/고차 함수, 컬렉션 함수(map, filter, let, run, apply, also), 코루틴 기초(suspend, launch, async/await), 스코프 함수, Spring Boot + Kotlin 연동, Java와의 차이점 등.
+
+최근에 이미 다룬 주제이므로 반드시 제외해주세요:
+${RECENT_KOTLIN:-없음}
+
+형식:
+### 제목
+설명 (2-3문장)
+
+> 💡 **왜 중요한가**: 한 문장
+EOF
+else
+echo "⊙ Kotlin 이미 존재 — 건너뜀"
 fi
 
 echo "[$DATE] 다이제스트 생성 완료!"

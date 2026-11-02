@@ -1,7 +1,7 @@
 # Daily Tech Digest
 
 백엔드 개발자를 위한 일일 학습 노트.
-매일 08:40에 Claude CLI가 자동으로 IT 뉴스, Java, Spring Boot, Database 관련 지식을 정리하고 GitHub에 푸시합니다.
+매일 08:40에 Claude CLI가 자동으로 IT 뉴스, Java, Spring Boot, Database, React, Kotlin 관련 지식을 정리하고 GitHub에 푸시합니다.
 
 ## 학습 노트
 
@@ -13,6 +13,8 @@
 | [**java/**](java/) | 문법, JVM, 멀티스레딩, 스트림, 최신 버전 기능 | 2개/일 |
 | [**springboot/**](springboot/) | DI, AOP, REST API, 시큐리티, 테스트, 성능 최적화 | 2개/일 |
 | [**database/**](database/) | SQL, 인덱스, 트랜잭션, 쿼리 최적화, NoSQL | 2개/일 |
+| [**react/**](react/) | JSX, 컴포넌트, Hooks, 상태관리, Router | 2개/일 |
+| [**kotlin/**](kotlin/) | 기본 문법, null safety, 코루틴, Spring Boot 연동 | 2개/일 |
 
 ## 가이드
 
@@ -59,5 +61,7 @@ daily-tech-digest/
 │   └── jpa/        # JPA 핵심 개념 가이드 (14개)
 ├── springboot/     # Spring Boot 팁 (2개/일)
 ├── database/       # Database 팁 (2개/일)
+├── react/          # React 기초 (2개/일)
+├── kotlin/         # Kotlin 기초 (2개/일)
 └── generate.sh     # 학습 노트 자동 생성 스크립트
 ```

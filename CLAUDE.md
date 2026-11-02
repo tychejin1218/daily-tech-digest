@@ -1,6 +1,6 @@
 # Daily Tech Digest
 
-매일 08:40 자동 실행되고 13:30에 누락분을 채우는 기술 학습 다이제스트. `generate.sh`가 Claude CLI를 호출해 5개 카테고리 파일을 생성하고 GitHub에 자동 push한다.
+매일 08:40 자동 실행되고 13:30에 누락분을 채우는 기술 학습 다이제스트. `generate.sh`가 Claude CLI를 호출해 7개 카테고리 파일을 생성하고 GitHub에 자동 push한다.
 
 ## 금지 규칙
 
@@ -26,6 +26,8 @@ daily-tech-digest/
 ├── springboot/YYYY-MM/  # Spring Boot 팁 (2개 항목) — 월별 폴더
 ├── database/YYYY-MM/    # Database 팁 (2개 항목) — 월별 폴더
 ├── architecture/YYYY-MM/ # 아키텍처 (1개 항목, AI 시대 시스템 설계) — 월별 폴더
+├── react/YYYY-MM/       # React 기초 (2개 항목) — 월별 폴더
+├── kotlin/YYYY-MM/      # Kotlin 기초 (2개 항목) — 월별 폴더
 └── generate.sh          # 생성 스크립트
 ```
 
@@ -55,4 +57,4 @@ daily-tech-digest/
 
 - **스케줄**: 매일 08:40 (기본 실행) + 13:30 (catch-up — 08:40에 누락된 카테고리만 채움). launchd: `~/Library/LaunchAgents/com.daekyo.daily-tech-digest.plist`
 - **로그**: `generate.log`
-- **generate.sh 동작**: 5개 파일 모두 존재하면 즉시 종료(catch-up guard). 누락분만 생성 → `git add .` → `git commit` → `git push origin main`. 각 카테고리 블록도 `[ ! -s "$DIR/${DATE}.md" ]` 가드로 보호되어 이미 완료된 카테고리는 건너뜀
+- **generate.sh 동작**: 7개 파일 모두 존재하면 즉시 종료(catch-up guard). 누락분만 생성 → `git add .` → `git commit` → `git push origin main`. 각 카테고리 블록도 `[ ! -s "$DIR/${DATE}.md" ]` 가드로 보호되어 이미 완료된 카테고리는 건너뜀

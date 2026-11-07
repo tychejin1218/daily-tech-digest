@@ -3412,3 +3412,29 @@ To https://github.com/tychejin1218/daily-tech-digest.git
 ✓ React 완료 → 2026-11-07.md
 ✓ Kotlin 완료 → 2026-11-07.md
 [2026-11-07] 다이제스트 생성 완료!
+[main 0b0c8b3] Daily tech digest - 2026-11-07 (2026-11-07.md)
+ 8 files changed, 531 insertions(+)
+ create mode 100644 architecture/2026-11/2026-11-07.md
+ create mode 100644 database/2026-11/2026-11-07.md
+ create mode 100644 java/2026-11/2026-11-07.md
+ create mode 100644 kotlin/2026-11/2026-11-07.md
+ create mode 100644 news/2026-11/2026-11-07.md
+ create mode 100644 react/2026-11/2026-11-07.md
+ create mode 100644 springboot/2026-11/2026-11-07.md
+remote: Internal Server Error        
+remote: Request ID C18F:30F246:13FCD7:224587:6AEE66A9        
+remote: Time 2026-11-06T23:45:47Z
+To https://github.com/tychejin1218/daily-tech-digest.git
+ ! [remote rejected] main -> main (Internal Server Error)
+error: failed to push some refs to 'https://github.com/tychejin1218/daily-tech-digest.git'
+[2026-11-07] GitHub push 완료!
+[2026-11-07] 이미 생성 완료 — 건너뜀
+[2026-11-08] 다이제스트 생성 시작... (2026-11-08.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 132)]
+✓ IT 뉴스 완료 → 2026-11-08.md
+✓ Java 완료 → 2026-11-08.md
+✓ Spring Boot 완료 → 2026-11-08.md
+✓ Database 완료 → 2026-11-08.md
+✓ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 132)) 완료 → 2026-11-08.md
+✓ React 완료 → 2026-11-08.md
+✓ Kotlin 완료 → 2026-11-08.md
+[2026-11-08] 다이제스트 생성 완료!

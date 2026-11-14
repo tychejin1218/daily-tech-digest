@@ -3555,3 +3555,18 @@ To https://github.com/tychejin1218/daily-tech-digest.git
 ✗ Kotlin 실패 (exit=1) — stderr: 
    stdout 시작: Failed to authenticate. API Error: 401 OAuth access token has expired. Re-authenticate to continue.
 [2026-11-13] 다이제스트 생성 완료!
+[main ff01448] Daily tech digest - 2026-11-13 (2026-11-13.md)
+ 1 file changed, 29 insertions(+)
+To https://github.com/tychejin1218/daily-tech-digest.git
+   5226b7f..ff01448  main -> main
+[2026-11-13] GitHub push 완료!
+[2026-11-13] 다이제스트 생성 시작... (2026-11-13.md) [아키텍처: Lv5 AI 시대 아키텍처 (Day 137)]
+✓ IT 뉴스 완료 → 2026-11-13.md
+✓ Java 완료 → 2026-11-13.md
+✓ Spring Boot 완료 → 2026-11-13.md
+✓ Database 완료 → 2026-11-13.md
+✗ 아키텍처 (Lv5 AI 시대 아키텍처 (Day 137)) 실패 (exit=1) — stderr: 
+   stdout 시작: API Error: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
+✓ React 완료 → 2026-11-13.md
+✓ Kotlin 완료 → 2026-11-13.md
+[2026-11-13] 다이제스트 생성 완료!
